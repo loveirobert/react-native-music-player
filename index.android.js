@@ -1,29 +1,23 @@
 import React, { Component } from 'react'
 import {
   AppRegistry,
-  StyleSheet,
-  Text,
-  ListView
+  StyleSheet
 } from 'react-native'
 
+import { Router, Scene } from 'react-native-router-flux';
+
+import PlayView from './src/components/PlayView'
+import TrackListView from './src/components/TrackListView'
+
 class reactAudio extends Component {
-  constructor(props) {
-    super(props)
-    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
-    const rows = []
-    for (let i = 0; i < 100; i++) {
-      rows.push(`Row ${i}`)
-    }
-    this.state = {
-      dataSource: ds.cloneWithRows(rows),
-    }
-  }
   render() {
     return (
-      <ListView
-        dataSource={this.state.dataSource}
-        renderRow={(rowData) => <Text>{rowData}</Text>}
-      />
+      <Router>
+        <Scene key="root">
+          <Scene key="trackListView" component={TrackListView} title="TrackList" initial={true} />
+          <Scene key="playView" component={PlayView} title="Play" />
+        </Scene>
+      </Router>
     )
   }
 }
