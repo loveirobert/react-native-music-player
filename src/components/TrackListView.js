@@ -4,6 +4,7 @@ import {
   Text,
   ListView
 } from 'react-native'
+import TrackListItem from './TrackListItem'
 
 export default class TeackListView extends Component {
   constructor(props) {
@@ -21,7 +22,7 @@ export default class TeackListView extends Component {
     return (
       <ListView
         dataSource={this.state.dataSource}
-        renderRow={(rowData) => <Text>{rowData}</Text>}
+        renderRow={(rowData) => <TrackListItem text={rowData} />}
       />
     )
   }
