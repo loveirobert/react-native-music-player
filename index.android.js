@@ -11,8 +11,10 @@ import TrackListView from './src/components/TrackListView'
 
 class reactAudio extends Component {
   render() {
+    const getSceneStyle = this.getSceneStyle
+    const getNavigationBarStyle = this.getNavigationBarStyle
     return (
-      <Router>
+      <Router navigationBarStyle={{height: 50}} titleStyle={{marginTop: 0, top: 15}}>
         <Scene key="root">
           <Scene key="trackListView" component={TrackListView} title="TrackList" initial={true} />
           <Scene key="playView" component={PlayView} title="Play" />
@@ -21,24 +23,5 @@ class reactAudio extends Component {
     )
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-})
 
 AppRegistry.registerComponent('reactAudio', () => reactAudio)

@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import {
-  StyleSheet,
-  Text,
-  ListView
+  StyleSheet, Text, ListView
 } from 'react-native'
 import TrackListItem from './TrackListItem'
 
@@ -11,7 +9,7 @@ export default class TeackListView extends Component {
     super(props)
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
     const rows = []
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 20; i++) {
       rows.push(`Row ${i}`)
     }
     this.state = {
@@ -20,7 +18,7 @@ export default class TeackListView extends Component {
   }
   render() {
     return (
-      <ListView
+      <ListView style={styles.view}
         dataSource={this.state.dataSource}
         renderRow={(rowData) => <TrackListItem text={rowData} />}
       />
@@ -29,20 +27,7 @@ export default class TeackListView extends Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+  view: {
+    marginTop: 50
+  }
 })
